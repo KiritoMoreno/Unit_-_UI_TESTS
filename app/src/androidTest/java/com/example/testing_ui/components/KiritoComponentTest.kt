@@ -1,5 +1,20 @@
 package com.example.testing_ui.components
 
+import androidx.compose.ui.test.assertContentDescriptionContains
+import androidx.compose.ui.test.assertContentDescriptionEquals
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.assertIsFocused
+import androidx.compose.ui.test.assertIsNotDisplayed
+import androidx.compose.ui.test.assertIsNotEnabled
+import androidx.compose.ui.test.assertIsNotFocused
+import androidx.compose.ui.test.assertIsNotSelected
+import androidx.compose.ui.test.assertIsOff
+import androidx.compose.ui.test.assertIsOn
+import androidx.compose.ui.test.assertIsSelectable
+import androidx.compose.ui.test.assertIsSelected
+import androidx.compose.ui.test.assertTextContains
+import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.doubleClick
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.longClick
@@ -60,6 +75,24 @@ class KiritoComponentTest {
         composeTestRule.onNodeWithText("kirito").performTextClearance()  // Delete the Text of textField
         composeTestRule.onNodeWithText("kirito").performTextInput("Hellllllooooo")  // it will add to the TextField
         composeTestRule.onNodeWithText("kirito").performTextReplacement("Hello") // it will replace the text
+
+        //Assertions
+        composeTestRule.onNodeWithText("kirito").assertExists()
+        composeTestRule.onNodeWithText("kirito").assertDoesNotExist()
+        composeTestRule.onNodeWithText("kirito").assertContentDescriptionEquals("Hello")
+        composeTestRule.onNodeWithText("kirito").assertContentDescriptionContains("Hello")
+        composeTestRule.onNodeWithText("kirito").assertIsDisplayed() // Check if it's visible
+        composeTestRule.onNodeWithText("kirito").assertIsNotDisplayed() // Check if it is not visible
+        composeTestRule.onNodeWithText("kirito").assertIsEnabled() // Enabled textView or button
+        composeTestRule.onNodeWithText("kirito").assertIsNotEnabled()
+        composeTestRule.onNodeWithText("kirito").assertIsSelected() // Example RadioButton if it's selected
+        composeTestRule.onNodeWithText("kirito").assertIsNotSelected()
+        composeTestRule.onNodeWithText("kirito").assertIsFocused() // Example when you focus something on the textView
+        composeTestRule.onNodeWithText("kirito").assertIsNotFocused()
+        composeTestRule.onNodeWithText("kirito").assertIsOn()  // For the checked attribute
+        composeTestRule.onNodeWithText("kirito").assertIsOff()
+        composeTestRule.onNodeWithText("kirito").assertTextEquals("") 
+        composeTestRule.onNodeWithText("kirito").assertTextContains("Kirito")
 
 
 

@@ -28,7 +28,7 @@ fun KiritoComponent(){
     Column (Modifier.fillMaxSize()){
 
         TextField(value=name, onValueChange={name = it})
-        Text(text = "Your name $name")
+        Text(text = "Your name is $name")
         Text(text = "KIRITO", Modifier.testTag("component1"))
         Text(text = "PEDRO", Modifier.testTag("component2"))
         Text(text = "KIRITO",Modifier.testTag("component3"))
