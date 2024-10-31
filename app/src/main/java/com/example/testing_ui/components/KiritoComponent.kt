@@ -27,12 +27,8 @@ fun KiritoComponent(){
     }
     Column (Modifier.fillMaxSize()){
 
-        TextField(value=name, onValueChange={name = it})
-        Text(text = "Your name is $name")
-        Text(text = "KIRITO", Modifier.testTag("component1"))
-        Text(text = "PEDRO", Modifier.testTag("component2"))
-        Text(text = "KIRITO",Modifier.testTag("component3"))
+        TextField(value=name, onValueChange={name = it}, modifier = Modifier.testTag("textFieldName"))
+        Text(text = "Your name is $name", modifier = Modifier.testTag("textGreeting"))
 
-        Image(Icons.Default.Add, contentDescription = "superImage")
     }
 }

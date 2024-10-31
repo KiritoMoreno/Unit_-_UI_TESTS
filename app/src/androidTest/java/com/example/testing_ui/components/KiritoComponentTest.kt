@@ -91,11 +91,24 @@ class KiritoComponentTest {
         composeTestRule.onNodeWithText("kirito").assertIsNotFocused()
         composeTestRule.onNodeWithText("kirito").assertIsOn()  // For the checked attribute
         composeTestRule.onNodeWithText("kirito").assertIsOff()
-        composeTestRule.onNodeWithText("kirito").assertTextEquals("") 
+        composeTestRule.onNodeWithText("kirito").assertTextEquals("")
         composeTestRule.onNodeWithText("kirito").assertTextContains("Kirito")
 
+    }
 
+    @Test
+    fun verifyComponentStartWithKirito(){
+        composeTestRule.setContent { KiritoComponent() }
 
+        composeTestRule.onNodeWithText("kirito", ignoreCase = true).assertExists()
+        composeTestRule.onNodeWithTag("textFieldName").assertTextContains("Kirito")
+    }
+    @Test
+    fun whenNameIsAdded_thenVerifyTextContainGreeting(){
+        composeTestRule.setContent { KiritoComponent() }
+
+        composeTestRule.onNodeWithTag("textFieldName").performTextReplacement("Dur")
+        composeTestRule.onNodeWithTag("textGreeting").assertTextEquals("Your name is Dur")
     }
 
 }
