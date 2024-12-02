@@ -18,7 +18,7 @@ class DialogComponentTests{
             //Here wi will need the lambda but we can check without it
             AddTasksDialog(show = true, onDismiss = {  }, onTaskAdded = {})
         }
-        composeTestRule.onNodeWithTag("diolog").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("dialog").assertIsDisplayed()
     }
 
     @Test
@@ -27,6 +27,6 @@ class DialogComponentTests{
             //Here wi will need the lambda but we can check without it
             AddTasksDialog(show = false, onDismiss = {  }, onTaskAdded = {})
         }
-        composeTestRule.onNodeWithTag("diolog").assertDoesNotExist()
+        composeTestRule.onNodeWithTag("dialog").assertDoesNotExist()
     }
 }

@@ -36,7 +36,7 @@ fun AddTasksDialog(show: Boolean, onDismiss: () -> Unit, onTaskAdded: (String) -
                     .fillMaxWidth()
                     .background(Color.White)
                     .padding(16.dp)
-                    .testTag("diaolog")
+                    .testTag("dialog")
             ) {
                 Text(
                     text = "Add your homework",
